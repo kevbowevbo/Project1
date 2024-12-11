@@ -93,6 +93,7 @@ class Logic(QMainWindow, Ui_MainWindow):
         """
         user_ID = self.ID_line.text().strip()
         checked = False
+        candidate = ''
         try:
             if self.Can1_radBut.isChecked():
                 candidate = 'Bianca'
@@ -124,9 +125,6 @@ class Logic(QMainWindow, Ui_MainWindow):
             elif user_ID == '' and candidate == '':
                 self.Outcome_label.setText("Enter Voter ID and enter the name of a Candidate")
                 self.Outcome_label.setStyleSheet("color: red")
-            elif candidate == '':
-                self.Outcome_label.setText("Enter the name of a Candidate")
-                self.Outcome_label.setStyleSheet("color: red")
             elif user_ID == '':
                 self.Outcome_label.clear()
                 self.Outcome_label.setText("Enter Voter ID")
@@ -134,7 +132,9 @@ class Logic(QMainWindow, Ui_MainWindow):
             elif checked == False:
                 self.Outcome_label.setText("Select a Candidate")
                 self.Outcome_label.setStyleSheet("color: red")
-
+            elif candidate == '':
+                self.Outcome_label.setText("Enter the name of a Candidate")
+                self.Outcome_label.setStyleSheet("color: red")
     def results(self) -> None:
         """
         Function allows for a result button that reads through the csv to count the votes for each candidate
