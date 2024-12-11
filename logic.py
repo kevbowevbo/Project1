@@ -3,6 +3,9 @@ from gui import *
 import csv
 
 class Logic(QMainWindow, Ui_MainWindow):
+    """"
+    A Class to set up a voting application and handeling all the logic behind the features
+    """
     def __init__(self)->None:
         super().__init__()
         self.setupUi(self)
